@@ -1,0 +1,38 @@
+import tkinter as tk 
+import random
+
+window = tk.Tk()
+window.title("Gretings________________ ")
+window.geometry("400x400")
+
+# functions
+def phrase_generator():
+    phrases = ["hello ", "hi ", "what's up ", "hey ", "howdy ", "sup "]
+    name = str(entry1.get())
+
+    return phrases[random.randint(0, 4)] + name
+def phrase_display():
+    greeting = phrase_generator()
+    # below a text field is created
+    greeting_display = tk.Text(master=window, height=10, width=30)
+    greeting_display.grid(column=0, row=3)
+    greeting_display.insert(tk.END, greeting)
+
+# label
+label1 = tk.Label(text="welcome to my app")
+label1.grid(column=0, row=0)
+
+label2 = tk.Label(text="what is your name? ")
+label2.grid(column=0, row=1)
+
+# entry field
+entry1 = tk.Entry()
+entry1.grid(column=1, row=1)
+
+# button
+button1 = tk.Button(text="click me", fg="red", command=phrase_display)
+button1.grid(column=0, row=2)
+
+
+
+window.mainloop()
